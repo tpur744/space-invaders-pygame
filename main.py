@@ -62,7 +62,7 @@ def score_show(x, y):
 
 def game_over_text():
    game_over = game_over_font.render("GAME OVER", True, white)
-   screen.blit(game_over, (180, 100))
+   screen.blit(game_over, (175, 100))
 
 
 def player(x, y):
@@ -240,15 +240,16 @@ def run_game(diff):
 
 # Loads in number of enemies based on difficulty, and makes them appear at random locations within specified range
 def load_enemy(diff):
+   global enemyImage  # Declare the variable as global to modify the global one
    global enemyY
    global enemyX
    for i in range(num_enemy_list[diff]):
        enemyImage.append(pygame.image.load('enemy.png'))
+       enemyImage[i] = pygame.transform.scale(enemyImage[i], (50, 50))  # Resize enemy image to 50x50 pixels
        # Randomises enemy position each time
        enemyX.append(random.randint(0, 736))
        enemyY.append(random.randint(0, 150))
        enemyY_change.append(40)
-
 
 def check_high_score():
 
@@ -281,7 +282,10 @@ screen = pygame.display.set_mode((800, 600))  # Size of the screen
 pygame.display.set_caption("Space Invaders by Tavish Puri")
 
 playerImage = pygame.image.load('player.png')
+playerImage = pygame.transform.scale(playerImage, (50, 50))  # Resize player image to 50x50 pixels
+
 bulletImage = pygame.image.load('bullet.png')
+bulletImage = pygame.transform.scale(bulletImage, (20, 40))
 font = pygame.font.Font('freesansbold.ttf', 30)  # Score Text
 
 # Game over text
