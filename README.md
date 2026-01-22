@@ -1,0 +1,1 @@
+Simple Space Invaders-style game built in Python using Pygame. Features include player movement, enemy waves with adjustable difficulty, bullet firing, collision detection, scoring, and high score tracking using local storage.
